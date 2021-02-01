@@ -1,6 +1,6 @@
 import time
-import settings
 import bugswar
+import settings
 
 class Bug:
     '''
@@ -8,7 +8,7 @@ class Bug:
     but not a simple one
     this is an smart one :o
     '''
-    def __init__(self, name, x, y):
+    def __init__(self, name, char, x, y):
         
         #position of the bug
         self.X = x
@@ -18,8 +18,12 @@ class Bug:
         self.width  = settings.world_width
         self.height = settings.world_height
 
-        #and its name
+        #bugs name and character
         self.name = name
+        self.char = char
+
+        #the health level of the bug
+        self.health = settings.bug_max_health
 
 
     #move character
