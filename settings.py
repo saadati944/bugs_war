@@ -1,5 +1,5 @@
 #refresh rate of the game
-framerate = 60
+framerate = 20
 
 #size of the world (characters)(int)
 world_width = 20

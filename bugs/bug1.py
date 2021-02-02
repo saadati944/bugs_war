@@ -5,6 +5,9 @@ y = 5                 #start point y
 
 def start(bug):
     while True:
+        if bug.health<= 0 :
+            break
+        bug.health -= 10
         bug.move_down()
         bug.move_left()
         bug.move_up()
