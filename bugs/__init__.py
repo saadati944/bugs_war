@@ -8,7 +8,8 @@ import prop
 # starts_list=[bug1.start, bug2.start, bug3.start, ...]
 
 import bugs.bug1
-bugs_list=[bug1]
+import bugs.bug2
+bugs_list=[bug1, bug2]
 
 
 

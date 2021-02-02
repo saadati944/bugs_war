@@ -15,8 +15,12 @@ m = map.Map()
 # bugs in the world
 bullets_list = []
 bugs_list = []
+
+threads = []
+
 start_functions  = []
 start_properties = []
+
 import bugs
 bugs.addfuncs(start_functions, start_properties)
 
@@ -39,7 +43,17 @@ def main():
         b = bug.Bug(start_properties[i].name, start_properties[i].char, start_properties[i].x, start_properties[i].y)
         bugs_list.append(b)
     
+    for i in range(len(start_functions)):
+        t = threading.Thread(target=start_functions[i], args=(bugs_list[i],))
+        threads.append(t)
+        t.start()
     
+    # for t in threads:
+    #     t.join()
+    
+    while True:
+        draw()
+        
 
     draw()
     
