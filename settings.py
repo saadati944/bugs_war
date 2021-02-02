@@ -26,5 +26,5 @@ bullet_char = '.'
 
 
 # !!! don't touch these !!!
-refresh_delay = 1000.0/framerate
+refresh_delay = 1.000/framerate
 linux_clear_screen = "\033[0;0H"
