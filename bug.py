@@ -65,7 +65,7 @@ class Bug:
                     break
         time.sleep(abs(settings.wait_after_move - (time.time() - t)))
 
-    def move_up(self):
+    def move_down(self):
         t = time.time()
         if self.Y < settings.world_height-1:
             self.Y += 1
@@ -79,7 +79,7 @@ class Bug:
                     break
         time.sleep(abs(settings.wait_after_move - (time.time() - t)))
 
-    def move_down(self):
+    def move_up(self):
         t = time.time()
         if self.Y > 0:
             self.Y -= 1
