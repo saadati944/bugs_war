@@ -1,7 +1,4 @@
-from os.path import dirname, basename, isfile, join
-import glob
-modules = glob.glob(join(dirname(__file__), "*.py"))
-__all__ = [ basename(f)[:-3] for f in modules if isfile(f) and not f.endswith('__init__.py')]
+import prop
 
 
 # add your bug here
@@ -11,9 +8,11 @@ __all__ = [ basename(f)[:-3] for f in modules if isfile(f) and not f.endswith('_
 # starts_list=[bug1.start, bug2.start, bug3.start, ...]
 
 import bugs.bug1
-starts_list=[bug1.start]
+bugs_list=[bug1]
 
 
 
-def addfuncs(fl):
-    fl+=starts_list
+def addfuncs(fl, props):
+    for i in range(len(bugs_list)):
+        fl.append(bugs_list[i].start)
+        props.append(prop.Prop(bugs_list[i].name, bugs_list[i].char, bugs_list[i].x, bugs_list[i].y))

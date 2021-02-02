@@ -15,9 +15,10 @@ m = map.Map()
 # bugs in the world
 bullets_list = []
 bugs_list = []
-start_functions = []
+start_functions  = []
+start_properties = []
 import bugs
-bugs.addfuncs(start_functions)
+bugs.addfuncs(start_functions, start_properties)
 
 
 def draw():
@@ -33,9 +34,14 @@ def draw():
 
 
 def main():
-    print("test")
-    for f in start_functions:
-        f("hello world")
+    print("starting game ...")
+    for i in range(len(start_functions)):
+        b = bug.Bug(start_properties[i].name, start_properties[i].char, start_properties[i].x, start_properties[i].y)
+        bugs_list.append(b)
+    
+    
+
+    draw()
     
     
 
