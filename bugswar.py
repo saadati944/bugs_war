@@ -79,7 +79,7 @@ def main():
     global Time
     print("starting game ...")
     for i in range(len(start_functions)):
-        b = bug.Bug(start_properties[i].name, start_properties[i].char, start_properties[i].x, start_properties[i].y, create_bullet)
+        b = bug.Bug(start_properties[i].name, start_properties[i].char, start_properties[i].x, start_properties[i].y, create_bullet, bugs_list)
         bugs_list.append(b)
     
     for i in range(len(start_functions)):

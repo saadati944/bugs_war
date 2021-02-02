@@ -7,7 +7,8 @@ def start(bug):
     while True:
         if bug.health<= 0 :
             break
-        bug.shoot(0)
+        if bug.scan(0):
+            bug.shoot(0)
         
 
 #a bug format :

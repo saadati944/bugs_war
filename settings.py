@@ -13,6 +13,7 @@ wait_after_scan = 0.05
 #health
 bug_max_health = 100
 bullet_decrease_health = 10
+collision_decrease_health = 5
 
 #bullets character
 bullet_char = '.'

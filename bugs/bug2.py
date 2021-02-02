@@ -7,7 +7,10 @@ def start(bug):
     while True:
         if bug.health<= 0:
             break
-        bug.shoot(185)
+        if bug.scan(181):
+            bug.shoot(181)
+        if bug.X<bug.width:
+            bug.move_right()
 
 
 #a bug format :
