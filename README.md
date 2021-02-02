@@ -11,4 +11,12 @@ every bug has 6 operations
 - `bug.shoot(deg)`
 
 if you want to check your health, then use this :
-`bug.health`
+- `bug.health`
+
+the position of the bug:
+- `bug.X`
+- `bug.Y`
+
+world size:
+- `bug.width`
+- `bug.height`
