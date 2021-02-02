@@ -15,5 +15,5 @@ class Bullet:
         self.shooter = shooter
 
     def calculatePos(self, time):
-        return int(self.X + (time - self.starttime) * math.cos(self.deg)), int(self.Y + (time - self.starttime) * math.sin(self.deg)), self.shooter
+        return int(self.X + (time - self.starttime) * settings.related_bullet_speed * math.cos(self.deg)), int(self.Y + (time - self.starttime) * settings.related_bullet_speed * math.sin(self.deg)), self.shooter
     
