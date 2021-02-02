@@ -1,38 +1,30 @@
+import settings, time
 
-class Point:
-    def __init__(self, x: int, y: int, chr: str = ''):
-        self.x = x
-        self.y = y
-        self.chr = chr
 
-    def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
+class Char:
+    def __init__(self, ch):
+        self.char = ch
 
 
 class Map:
     def __init__(self):
-        self.points = []
+        self.reset()
 
-    def add_point(self, point: Point):
-        self.points.append(point)
+    def add_point(self, x:int, y:int, char:str):
+        self.blocks[y][x] = Char(char)
 
     def reset(self):
-        self.points = []
+        self.blocks = []
+        for i in range(settings.world_height):
+            self.blocks.append([])
+        for i in range(settings.world_height):
+            for j in range(settings.world_width):
+                self.blocks[i].append(Char(' '))
 
-    def get_map(self, width: int, height: int) -> str:
+    def get_map(self) -> str:
         m = ''
-        for i in range(width):
-            for j in range(height):
-                ind = self.indexof(Point(j, i))
-                if ind >= 0:
-                    m += self.points[ind].chr
-                else:
-                    m += ' '
+        for i in range(settings.world_height):
+            for j in range(settings.world_width):
+                m += self.blocks[i][j].char
             m += '\n'
         return m
-
-    def indexof(self, point:Point):
-        for i in range(len(self.points)):
-            if self.points[i] == point:
-                return i
-        return -1
