@@ -28,7 +28,15 @@ bugs.addfuncs(start_functions, start_properties)
 calculate_time = time.time()
 
 def draw():
-    global Time
+    global Time, calculate_time
+    calculate_time = time.time()
+    for i in range(len(bugs_list)):
+        if bugs_list[i] == False:
+            continue
+        if bugs_list[i].health<=0:
+            b = bugs_list[i]
+            bugs_list[i] = False
+            del b
     for i in range(len(bugs_list)):
         if bugs_list[i] == False:
             continue
@@ -45,13 +53,15 @@ def draw():
                 continue
             if bugs_list[j].X==p[0] and bugs_list[j].Y==p[1] and bugs_list[j] != p[2]:
                 bugs_list[j].health -= settings.bullet_decrease_health
+                bullets_list[i] = False
+                break
         m.add_point(p[0], p[1], settings.bullet_char)
 
     if IsLinux:
         print(settings.linux_clear_screen, end='')
     else:
         _=os.system("cls")
-
+        
     print(m.get_map())
     for b in bugs_list:
         if b == False:
@@ -62,17 +72,6 @@ def draw():
     time.sleep(abs(settings.refresh_delay - (time.time() - calculate_time)))
 
 
-def check_stats():
-    global calculate_time
-    calculate_time = time.time()
-    for i in range(len(bugs_list)):
-        if bugs_list[i] == False:
-            continue
-        if bugs_list[i].health<=0:
-            b = bugs_list[i]
-            bugs_list[i] = False
-            del b
-
 def create_bullet(x, y, deg, shooter):
     global Time, bullets_list
     bullets_list.append(bullet.Bullet(x, y, deg, Time, shooter))
@@ -80,7 +79,12 @@ def create_bullet(x, y, deg, shooter):
 
 def main():
     global Time
-    print("starting game ...")
+
+    if IsLinux:
+        _=os.system("clear")
+    else:
+        _=os.system("cls")
+    
     for i in range(len(start_functions)):
         b = bug.Bug(start_properties[i].name, start_properties[i].char, start_properties[i].x, start_properties[i].y, create_bullet, bugs_list)
         bugs_list.append(b)
@@ -95,7 +99,6 @@ def main():
     
     while True:
         draw()
-        check_stats()
         Time += 1
         
 
