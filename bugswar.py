@@ -29,7 +29,6 @@ calculate_time = time.time()
 
 def draw():
     global Time, calculate_time
-    calculate_time = time.time()
     for i in range(len(bugs_list)):
         if bugs_list[i] == False:
             continue
@@ -76,6 +75,27 @@ def create_bullet(x, y, deg, shooter):
     global Time, bullets_list
     bullets_list.append(bullet.Bullet(x, y, deg, Time, shooter))
 
+def start_game():
+    global Time, calculate_time
+    while True:
+        draw()
+        calculate_time = time.time()
+        Time += 1
+        bc = 0
+        for b in bugs_list:
+            if b==False:
+                continue
+            bc += 1
+            if bc >= 2:
+                bc = -1
+                break
+        if bc != -1:
+            for b in bugs_list:
+                if b != False:
+                    b.health = 0
+                    input(f"\n\nthe winner is : {b.name} ({b.char})\npress enter to exit ...")
+                    os.sys.exit()
+            break
 
 def main():
     global Time
@@ -97,10 +117,15 @@ def main():
     # for t in threads:
     #     t.join()
     
-    while True:
-        draw()
-        Time += 1
-        
+    # while True:
+    #     draw()
+    #     Time += 1
+
+    starter = threading.Thread(target=start_game)
+    starter.start()
+    for t in threads:
+        t.join()
+    starter.join()
 
     draw()
     
