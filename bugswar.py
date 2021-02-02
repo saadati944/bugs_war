@@ -5,7 +5,6 @@ import bullet
 import settings
 import threading
 
-from bugs import *
 import map
 
 IsLinux = os.name != "nt"
@@ -16,6 +15,9 @@ m = map.Map()
 # bugs in the world
 bullets_list = []
 bugs_list = []
+start_functions = []
+import bugs
+bugs.addfuncs(start_functions)
 
 
 def draw():
@@ -31,12 +33,9 @@ def draw():
 
 
 def main():
-    # test
-    bugs_list.append(bug.Bug('bug1', '1', 19, 1))
-    bugs_list.append(bug.Bug('bug2', '2', 1, 9))
-    bugs_list.append(bug.Bug('bug3', '3', 2, 2))
-    bugs_list.append(bug.Bug('bug4', '4', 3, 3))
-    draw()
+    print("test")
+    for f in start_functions:
+        f("hello world")
     
     
 
