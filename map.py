@@ -23,7 +23,7 @@ class Map:
         m = ''
         for i in range(width):
             for j in range(height):
-                ind = self.indexof(Point(i, j))
+                ind = self.indexof(Point(j, i))
                 if ind >= 0:
                     m += self.points[ind].chr
                 else:
