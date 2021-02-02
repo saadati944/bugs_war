@@ -114,5 +114,5 @@ class Bug:
 
     def shoot(self, deg):
         t = time.time()
-        self.create_bullet(self.X, self.Y, deg)
+        self.create_bullet(self.X, self.Y, deg, self)
         time.sleep(abs(settings.wait_after_move - (time.time() - t)))

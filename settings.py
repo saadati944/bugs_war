@@ -1,9 +1,9 @@
 #refresh rate of the game
-framerate = 20
+framerate = 25
 
 #size of the world (characters)(int)
 world_width = 20
-world_height = 10
+world_height = 20
 
 #waitings (secconds)(float)
 wait_after_move = 0.2

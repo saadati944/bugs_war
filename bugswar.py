@@ -43,7 +43,7 @@ def draw():
         for j in range(len(bugs_list)):
             if bugs_list[j] == False:
                 continue
-            if bugs_list[j].X==p[0] and bugs_list[j].Y==p[1]:
+            if bugs_list[j].X==p[0] and bugs_list[j].Y==p[1] and bugs_list[j] != p[2]:
                 bugs_list[j].health -= settings.bullet_decrease_health
         m.add_point(p[0], p[1], settings.bullet_char)
 
@@ -73,9 +73,9 @@ def check_stats():
             bugs_list[i] = False
             del b
 
-def create_bullet(x, y, deg):
+def create_bullet(x, y, deg, shooter):
     global Time, bullets_list
-    bullets_list.append(bullet.Bullet(x, y, deg, Time))
+    bullets_list.append(bullet.Bullet(x, y, deg, Time, shooter))
 
 
 def main():
