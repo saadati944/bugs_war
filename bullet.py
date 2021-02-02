@@ -8,9 +8,10 @@ class Bullet:
         self.Y = y
 
         #convert degree to radians
-        self.deg = deg * math.pi / 180
+        self.deg = -(deg * math.pi / 180)
 
         self.starttime = starttime
     
     def calculatePos(self, time):
-        return (self.X + (time - self.starttime) * math.cos(self.deg)), (self.Y + (time - self.starttime) * math.sin(self.deg))
+        return int(self.X + (time - self.starttime) * math.cos(self.deg)), int(self.Y + (time - self.starttime) * math.sin(self.deg))
+    

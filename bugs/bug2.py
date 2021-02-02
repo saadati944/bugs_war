@@ -1,21 +1,14 @@
 name = "my second crazy bug" #your bugs name
 char = '#'            #your bugs character
-x = 8                 #start point x
-y = 8                 #start point y
+x = 7                #start point x
+y = 4                 #start point y
 
 def start(bug):
     while True:
         if bug.health<= 0:
             break
-        bug.move_down()
-        bug.scan(12)
-        bug.move_left()
-        bug.scan(12)
-        bug.health -= 30
-        bug.move_up()
-        bug.scan(12)
-        bug.move_right()
-        bug.scan(12)
+        bug.shoot(185)
+
 
 #a bug format :
 
@@ -25,6 +18,8 @@ def start(bug):
 # y = 5                 #start point y
 # def start(bug):       #start function
 #     while True:
+#         if bug.health<= 0:
+#             break
 #         bug.move_down()
 #         bug.move_left()
 #         bug.move_up()

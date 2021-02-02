@@ -8,7 +8,7 @@ import threading
 import map
 
 IsLinux = os.name != "nt"
-
+Time = 0
 
 m = map.Map()
 
@@ -28,10 +28,24 @@ bugs.addfuncs(start_functions, start_properties)
 calculate_time = time.time()
 
 def draw():
+    global Time
     for i in range(len(bugs_list)):
         if bugs_list[i] == False:
             continue
         m.add_point(bugs_list[i].X, bugs_list[i].Y, bugs_list[i].char)
+    for i in range(len(bullets_list)):
+        if bullets_list[i] == False:
+            continue
+        p = bullets_list[i].calculatePos(Time)
+        if p[0]<0 or p[0]>=settings.world_width or p[1]<0 or p[1]>=settings.world_height:
+            bullets_list[i] = False
+            continue
+        for j in range(len(bugs_list)):
+            if bugs_list[j] == False:
+                continue
+            if bugs_list[j].X==p[0] and bugs_list[j].Y==p[1]:
+                bugs_list[j].health -= settings.bullet_decrease_health
+        m.add_point(p[0], p[1], settings.bullet_char)
 
     print(settings.linux_clear_screen, end='')
 
@@ -55,14 +69,17 @@ def check_stats():
             b = bugs_list[i]
             bugs_list[i] = False
             del b
-        
 
+def create_bullet(x, y, deg):
+    global Time, bullets_list
+    bullets_list.append(bullet.Bullet(x, y, deg, Time))
 
 
 def main():
+    global Time
     print("starting game ...")
     for i in range(len(start_functions)):
-        b = bug.Bug(start_properties[i].name, start_properties[i].char, start_properties[i].x, start_properties[i].y)
+        b = bug.Bug(start_properties[i].name, start_properties[i].char, start_properties[i].x, start_properties[i].y, create_bullet)
         bugs_list.append(b)
     
     for i in range(len(start_functions)):
@@ -74,8 +91,9 @@ def main():
     #     t.join()
     
     while True:
-        check_stats()
         draw()
+        check_stats()
+        Time += 1
         
 
     draw()

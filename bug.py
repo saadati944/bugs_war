@@ -8,7 +8,7 @@ class Bug:
     but not a simple one
     this is an smart one :o
     '''
-    def __init__(self, name, char, x, y):
+    def __init__(self, name, char, x, y, create_bullet):
         
         #position of the bug
         self.X = x
@@ -24,6 +24,9 @@ class Bug:
 
         #the health level of the bug
         self.health = settings.bug_max_health
+
+        #a function to generate bullets
+        self.create_bullet = create_bullet
 
 
     #move character
@@ -53,6 +56,6 @@ class Bug:
         time.sleep(settings.wait_after_shoot)
     
     def shoot(self, deg):
-        #todo:complete this part
+        self.create_bullet(self.X, self.Y, deg)
         time.sleep(settings.wait_after_shoot)
 

@@ -10,9 +10,6 @@ wait_after_move = 0.2
 wait_after_shoot= 0.2
 wait_after_scan = 0.05
 
-#the speed of the bullet (characters per page refresh)(float)
-bullet_speed = 0.5
-
 #health
 bug_max_health = 100
 bullet_decrease_health = 10
