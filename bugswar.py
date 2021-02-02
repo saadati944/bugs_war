@@ -47,7 +47,10 @@ def draw():
                 bugs_list[j].health -= settings.bullet_decrease_health
         m.add_point(p[0], p[1], settings.bullet_char)
 
-    print(settings.linux_clear_screen, end='')
+    if IsLinux:
+        print(settings.linux_clear_screen, end='')
+    else:
+        _=os.system("cls")
 
     print(m.get_map())
     for b in bugs_list:
