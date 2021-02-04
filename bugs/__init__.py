@@ -7,12 +7,15 @@ import prop
 # import bugs.bug1, bugs.bug2, bugs.bug3, ...
 # starts_list=[bug1.start, bug2.start, bug3.start, ...]
 
-import bugs.bug1
-import bugs.bug2
+import bugs.bug1, bugs.bug2
 bugs_list=[bug1, bug2]
 
 
 
+
+# don't touch these lines
+# |  |  |  |  |  |  |  |
+# v  v  v  v  v  v  v  v
 def addfuncs(fl, props):
     for i in range(len(bugs_list)):
         fl.append(bugs_list[i].start)
