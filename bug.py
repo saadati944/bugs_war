@@ -110,9 +110,9 @@ class Bug:
             if prop.point(b.X, b.Y) in points:
                 return True
 
-        time.sleep(abs(settings.wait_after_move - (time.time() - t)))
+        time.sleep(abs(settings.wait_after_scan - (time.time() - t)))
 
     def shoot(self, deg):
         t = time.time()
         self.create_bullet(self.X, self.Y, deg, self)
-        time.sleep(abs(settings.wait_after_move - (time.time() - t)))
+        time.sleep(abs(settings.wait_after_shoot - (time.time() - t)))
