@@ -6,22 +6,20 @@ Control your bug with writing codes
 
 1. Create a new file in `bugs` folder with `.py` extension and with this structure :
     ```python
-    name = "sniper" #your bugs name
-    char = '@'      #your bugs character
-    x = 15          #start point x
-    y = 15          #start point y
+    name = "sniper"
+    char = '@'
+    #starting point for the bug
+    x = 15
+    y = 3
     
-    def start(bug):
-        while True:
-            #write your codes here
-            #|  |  |  |
-            #v  v  v  v
+    # this is the main loop and will be invoked repeatedly
+    def loop(bug):
+        #write your codes here
+        #|  |  |  |
+        #v  v  v  v
 
-
-            #۸  ۸  ۸  ۸
-            #|  |  |  |
-            if bug.health <=0 :
-                break
+        #۸  ۸  ۸  ۸
+        #|  |  |  |
     ```
 1. Add your bug in this file `bugs/__init__.py`
     ```python
@@ -35,7 +33,7 @@ Control your bug with writing codes
 
 # Coding a bug
 
-In the start function of your bugs code file, you will get a bug object that has these properties :
+In the loop function of your bugs code file, you will get a bug object that has these properties :
 
 - `bug.move_right()`
 - `bug.move_left()`
