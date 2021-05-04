@@ -4,6 +4,14 @@ import math
 import bugswar
 import settings
 
+def main_loop_decorator(func):
+    def main_loop_decorator(*args, **kwargs):
+        while True:
+            if args[0].health<= 0 :
+                break
+            func(*args, **kwargs)
+
+    return main_loop_decorator
 
 class Bug:
     '''

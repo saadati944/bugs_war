@@ -110,6 +110,7 @@ def main():
         bugs_list.append(b)
     
     for i in range(len(start_functions)):
+        start_functions[i] = bug.main_loop_decorator(start_functions[i])
         t = threading.Thread(target=start_functions[i], args=(bugs_list[i],))
         threads.append(t)
         t.start()
@@ -121,8 +122,7 @@ def main():
     starter.join()
 
     draw()
-    
-    
+
 
 
 if __name__ == "__main__":

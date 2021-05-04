@@ -18,5 +18,5 @@ bugs_list=[bug1, bug2]
 # v  v  v  v  v  v  v  v
 def addfuncs(fl, props):
     for i in range(len(bugs_list)):
-        fl.append(bugs_list[i].start)
+        fl.append(bugs_list[i].loop)
         props.append(prop.Prop(bugs_list[i].name, bugs_list[i].char, bugs_list[i].x, bugs_list[i].y))
