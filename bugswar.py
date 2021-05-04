@@ -65,7 +65,7 @@ def draw():
     for b in bugs_list:
         if b == False:
             continue
-        print(b.name, ":", b.health, '                  ')
+        print(f'{b.name} ({b.char}): {b.health}                  ')
     print('                                   ')
     m.reset()
     time.sleep(abs(settings.refresh_delay - (time.time() - calculate_time)))
