@@ -94,7 +94,7 @@ def start_game():
                 if b != False:
                     b.health = 0
                     input(f"\n\nthe winner is : {b.name} ({b.char})\npress enter to exit ...")
-                    os.sys.exit()
+                    calculate_time = time.time()
             break
 
 def main():
@@ -113,13 +113,6 @@ def main():
         t = threading.Thread(target=start_functions[i], args=(bugs_list[i],))
         threads.append(t)
         t.start()
-    
-    # for t in threads:
-    #     t.join()
-    
-    # while True:
-    #     draw()
-    #     Time += 1
 
     starter = threading.Thread(target=start_game)
     starter.start()
